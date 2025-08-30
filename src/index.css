@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Fira+Code:wght@300..700&family=Share+Tech&display=swap");
+
+@import "tailwindcss";
+
+/* Your font variables if needed */
+:root {
+  --font-share: "Share Tech", sans-serif;
+  --font-fira: "Fira Code", monospace;
+  --font-cairo: "Cairo", sans-serif;
+  --brand-color: #ff69b4;
+}
+
+/* Example usage in your app */
+body {
+  font-family: var(--font-cairo);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  cursor: pointer;
+}
