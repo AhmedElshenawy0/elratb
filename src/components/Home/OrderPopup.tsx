@@ -6,7 +6,7 @@ const OrderPopup = ({ meal, onClose, onAddToCart }: any) => {
   const [quantity, setQuantity] = useState(1);
 
   const handleExtraChange = (extraName: any) => {
-    setExtras((prev) => ({ ...prev, [extraName]: !prev[extraName] }));
+    setExtras((prev: any) => ({ ...prev, [extraName]: !prev[extraName] }));
   };
 
   const handleFinalAddToCart = () => {
