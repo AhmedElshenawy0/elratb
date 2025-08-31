@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const OrderPopup = ({ meal, onClose, onAddToCart }: any) => {
   const [size, setSize] = useState(meal.options.sizes[0]);
-  const [extras, setExtras] = useState({});
+  const [extras, setExtras] = useState<any>({});
   const [quantity, setQuantity] = useState(1);
 
-  const handleExtraChange = (extraName) => {
+  const handleExtraChange = (extraName: any) => {
     setExtras((prev) => ({ ...prev, [extraName]: !prev[extraName] }));
   };
 
@@ -48,7 +48,7 @@ const OrderPopup = ({ meal, onClose, onAddToCart }: any) => {
           <div>
             <h3 className="font-semibold text-gray-800 mb-2">الحجم</h3>
             <div className="flex gap-2">
-              {meal.options.sizes.map((s) => (
+              {meal.options.sizes.map((s: any) => (
                 <button
                   key={s}
                   onClick={() => setSize(s)}
@@ -64,7 +64,7 @@ const OrderPopup = ({ meal, onClose, onAddToCart }: any) => {
           <div>
             <h3 className="font-semibold text-gray-800 mb-2">الإضافات</h3>
             <div className="space-y-2">
-              {meal.options.extras.map((extra) => (
+              {meal.options.extras.map((extra: any) => (
                 <label
                   key={extra}
                   className="flex items-center gap-2 p-2 bg-gray-50 rounded-md"
