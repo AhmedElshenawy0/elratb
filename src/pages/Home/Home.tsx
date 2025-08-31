@@ -8,7 +8,7 @@ const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen  flex-col" dir="rtl">
+    <div className="flex min-h-screen flex-col" dir="rtl">
       <div className="w-full">
         {/* Background Image */}
         <div
@@ -66,11 +66,11 @@ const Home = () => {
         <button
           id="toggle-btn"
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="fixed top-4 right-4 z-50 p-2 bg-white rounded-md shadow-md md:hidden"
+          className="fixed top-4 right-12 z-50 p-1 bg-white rounded-md shadow-md md:hidden"
           aria-label="Open menu"
         >
           <svg
-            className="w-6 h-6 text-[#C0392B]"
+            className="w-5 h-5 text-[#C0392B]"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -86,7 +86,7 @@ const Home = () => {
         <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
         {/* Main Content */}
-        <div className="flex-1">
+        <div className="flex-1 ">
           <HeroSection />
         </div>
       </div>
