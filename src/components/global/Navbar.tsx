@@ -14,11 +14,11 @@ export default function Navbar() {
       </Link>
 
       {/* Search */}
-      <input
+      {/* <input
         type="text"
         placeholder="Search for restaurants or meals"
         className="w-1/2 hidden md:block px-4 py-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-[#C0392B]"
-      />
+      /> */}
       <Link to="/cart" className="relative top-0 -right-2 z-50">
         <BsCart4 size={25} color="green" />
         {cartItems.length >= 1 ? (

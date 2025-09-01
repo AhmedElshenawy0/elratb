@@ -1,5 +1,12 @@
-import React, { useContext, useState, useMemo, useCallback } from "react";
+import React, {
+  useContext,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+} from "react";
 import { CartContext, type CartItem } from "../components/CartContext"; // تأكد من أن هذا المسار صحيح
+import toast from "react-hot-toast";
 
 // --- 1. تعريف الأنواع (Types) ---
 interface WhatsappPopupProps {
@@ -84,11 +91,12 @@ function WhatsappPopup({
 
   const handleSendOrder = useCallback(() => {
     if (customerName.trim().length < 2) {
-      alert("الرجاء إدخال اسم صحيح.");
+      toast.error("الرجاء إدخال اسم صحيح.");
       return;
     }
     if (phoneNumber.trim().length < 10) {
-      alert("الرجاء إدخال رقم هاتف صحيح.");
+      toast.error("الرجاء إدخال رقم هاتف صحيح.");
+
       return;
     }
 
@@ -206,7 +214,9 @@ function WhatsappPopup({
 export default function CartPage() {
   const context = useContext(CartContext);
   if (!context) throw new Error("CartPage must be used within a CartProvider");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { cartItems, setCartItems } = context;
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "../../components/global/Sidebar";
 import HeroSection from "../../components/Home/Hero";
 import { Phone } from "lucide-react";
@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex min-h-screen flex-col" dir="rtl">
       <div className="w-full">

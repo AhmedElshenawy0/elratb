@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../CartContext";
 import OrderPopup from "./OrderPopup";
+import toast from "react-hot-toast";
 
 export default function HomeSection() {
   const { setCartItems } = useContext(CartContext)!;
@@ -182,6 +183,7 @@ export default function HomeSection() {
       }
     });
     handleClosePopup();
+    toast.success("تم إضافة الطلب إلي السلة.");
   };
 
   return (
