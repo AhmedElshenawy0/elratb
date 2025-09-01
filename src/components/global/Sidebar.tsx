@@ -38,7 +38,7 @@ export default function Sidebar({
     >
       {/* Restaurant Image */}
       <img
-        src="https://images.zyda.co/cdn-cgi/image/width=640,quality=75,f=auto,metadata=none/photos/restaurants/photo_urls/5346/original/IMG_9879.jpeg"
+        src="/images/cover7.jpg"
         alt="Restaurant"
         className="w-full h-44 object-cover rounded-xl mb-4"
       />

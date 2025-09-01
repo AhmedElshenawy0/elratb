@@ -195,7 +195,9 @@ export default function HomeSection() {
       )}
 
       <div className="mb-10">
-        <h1 className="text-4xl font-extrabold text-gray-800">الراتب الشامي</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
+          الراتب الشامي
+        </h1>
         <p className="text-md text-gray-600 mt-1">أكلات شرقية • مصرية</p>
         <div className="mt-2 text-[#F1C40F] text-lg font-semibold">
           ★★★★☆ <span className="text-gray-500 text-sm">(4.2)</span>

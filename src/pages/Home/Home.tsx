@@ -11,12 +11,14 @@ const Home = () => {
     <div className="flex min-h-screen flex-col" dir="rtl">
       <div className="w-full">
         {/* Background Image */}
-        <div
-          className="h-60 md:h-72 lg:h-80 bg-cover bg-center relative"
-          style={{ backgroundImage: "url('/images/resturant-bg.png')" }}
-        >
+        <div className="h-80 md:h-72 lg:h-105 2xl:h-150 bg-center relative">
+          <img
+            src="/images/cover1.jpg"
+            alt=""
+            className="w-full h-full object-fill"
+          />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/30" />
+          {/* <div className="absolute inset-0 bg-black/30" /> */}
         </div>
 
         {/* Content */}
@@ -24,18 +26,18 @@ const Home = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative pt-3 pb-6 px-4 md:px-10 flex flex-col md:flex-row items-start md:items-center gap-6"
+          className="relative pt-3 px-4 md:px-10 flex flex-col md:flex-row items-start md:items-center gap-6"
         >
           {/* Logo */}
           <img
-            src="/images/images.png"
+            src="/images/logo.jpg"
             alt="Restaurant Logo"
-            className="w-24 h-24 rounded-full border-4 border-white shadow-md relative -top-14"
+            className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md relative -top-14"
           />
 
           {/* Info */}
-          <div className="flex-1">
-            <h2 className="text-2xl font-bold text-gray-800 uppercase">
+          <div className="flex-1 relative -top-10 md:-top-0">
+            <h2 className="text-2xl font-bold text-gray-800 uppercase mb-2">
               Elratb Elshamy
             </h2>
             <p className="text-sm text-gray-600">
@@ -53,7 +55,7 @@ const Home = () => {
           </div>
 
           {/* Phone Icon */}
-          <div className="p-3 bg-red-100 rounded-full shadow-md cursor-pointer">
+          <div className="p-3 hidden md:block bg-red-100 rounded-full shadow-md cursor-pointer">
             <Phone className="text-[#C0392B]" />
           </div>
         </motion.div>
