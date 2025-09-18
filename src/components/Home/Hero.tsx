@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { CartContext } from "../CartContext";
 import OrderPopup from "./OrderPopup";
