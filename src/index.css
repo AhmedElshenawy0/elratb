@@ -22,3 +22,10 @@ a {
 button {
   cursor: pointer;
 }
+
+.mainbg {
+  background-image: url("/images/cover1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

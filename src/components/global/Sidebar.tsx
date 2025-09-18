@@ -29,7 +29,7 @@ export default function Sidebar({
     <aside
       id="sidebar"
       className={`
-        w-72 p-5 bg-white border-l shadow-md overflow-y-auto z-40
+        w-72 p-5 bg-gray-50 border-l shadow-md overflow-y-auto z-40
         h-[calc(100vh-80px)]
         fixed top-20 right-0 transition-transform duration-300
         ${open ? "translate-x-0" : "translate-x-full"}
