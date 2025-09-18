@@ -73,7 +73,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 flex flex-col items-center justify-end h-full text-center text-white px-6 pb-32 overflow-hidden"
+          className="relative z-10 flex flex-col items-center justify-end h-full text-center text-white px-6 pb-52 overflow-hidden"
         >
           {/* Logo with Animation */}
           <motion.img
