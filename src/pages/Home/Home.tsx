@@ -20,7 +20,7 @@ const Home = () => {
         scrollTrigger: {
           trigger: headerRef.current,
           start: "top 85%",
-          toggleActions: "play none none reset", // يعيد الأنيميشن كل مرة يظهر
+          toggleActions: "play none none reset",
         },
       });
 

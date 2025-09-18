@@ -212,18 +212,18 @@ export default function HomeSection() {
             },
           });
 
-          // أنيميشن العنوان
+          // title animation
           tl.fromTo(
             title,
             { y: 50, opacity: 0, skewY: 5 },
             { y: 0, opacity: 1, skewY: 0, duration: 0.8, ease: "expo.out" }
           );
 
-          // أنيميشن الكروت (يمين/شمال بالتبادل)
+          // cards animation
           tl.fromTo(
             cards,
             {
-              y: (i) => (i % 2 === 0 ? 30 : -30), // لو فردي ييجي من اليمين، لو زوجي من الشمال
+              y: (i) => (i % 2 === 0 ? 30 : -30),
               x: 0,
               opacity: 0,
               scale: 0.95,
