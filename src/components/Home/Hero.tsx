@@ -192,8 +192,6 @@ export default function HomeSection() {
     toast.success("تم إضافة الطلب إلي السلة.");
   };
 
-  const headerRef = useRef(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils
@@ -256,7 +254,7 @@ export default function HomeSection() {
       )}
 
       {/* Categories */}
-      {categories.map((category, categoryIndex) => (
+      {categories.map((category) => (
         <div
           key={category.title}
           id={category.title}

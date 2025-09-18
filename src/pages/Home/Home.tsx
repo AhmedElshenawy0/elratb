@@ -8,6 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  console.log(sidebarOpen);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
