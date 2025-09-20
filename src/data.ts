@@ -5,6 +5,7 @@ export const categories = [
       {
         id: 50,
         image: "/images/prost1.jpg",
+        promo: "جديد",
         title: "وجبة دينر ميل",
         desc: "قطعتين بروست بالعضم / 2 عيش / بطاطس / تومية / كلوسلو",
         price: 120,
@@ -12,6 +13,8 @@ export const categories = [
       {
         id: 51,
         image: "/images/prost2.jpg",
+        promo: "طبق الشيف",
+
         title: "وجبة سنايبر الراتب",
         desc: "3 قطع بروست بالعضم / 4 عيش / بطاطس / تومية / كلوسلو",
         price: 155,
@@ -19,7 +22,10 @@ export const categories = [
       {
         id: 61,
         image: "/images/3arabi1.jpg",
+        promo: "حار",
+
         title: "شاورما عربي دجاج",
+
         desc: " سندوتش شاورما مقطع / بطاطس / تومية / كولسلو / مخلل / عيش محمر",
         price: 110,
         options: {
@@ -36,6 +42,7 @@ export const categories = [
         title: "بوكس شاورما دجاج اكسترا",
         desc: " سندوتشين ونص شاورما مقطع 15 قطعه / بطاطس / تومية / كولسلو / مخلل / عيش محمر",
         price: 200,
+        promo: "عرض خاص",
       },
     ],
   },

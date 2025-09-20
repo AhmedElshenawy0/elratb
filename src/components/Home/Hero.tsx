@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { categories } from "../../data";
+import { FaPepperHot } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -143,12 +144,12 @@ export default function HomeSection({ refs }: { refs: any }) {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-white flex-1"
                       >
-                        <h3 className="text-2xl font-extrabold leading-snug flex items-center gap-2">
-                          أول طلب لك{" "}
-                          <span className="bg-yellow-300 text-orange-700 px-2 py-1 rounded-lg text-sm font-bold">
-                            خصم 50%
-                          </span>
-                        </h3>
+                        <h3 className="text-xl font-extrabold leading-snug flex items-center gap-2">
+                          {meal?.promo}{" "}
+                        </h3>{" "}
+                        <span className="bg-yellow-300 mt-4 w-fit block text-orange-700 px-2 py-1 rounded-lg text-sm font-bold">
+                          خصم 50%
+                        </span>
                         <p className="mt-2 text-sm text-white/90">
                           {meal.title}
                         </p>

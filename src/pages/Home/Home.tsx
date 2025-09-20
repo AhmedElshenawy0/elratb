@@ -103,7 +103,7 @@ const Home = () => {
         {/* Background Image */}
         <div
           className="absolute bg-fixed inset-0 bg-cover bg-center "
-          style={{ backgroundImage: "url('/images/logo00.jpg')" }}
+          style={{ backgroundImage: "url('/images/logo05.jpg')" }}
         />
 
         {/* Overlay Gradient */}
