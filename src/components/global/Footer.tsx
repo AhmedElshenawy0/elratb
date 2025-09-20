@@ -11,14 +11,14 @@ const Footer = () => {
         href="https://www.instagram.com/babelhara" // Replace with actual if different
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:bg-[#C0392B] hover:text-white transition-colors mx-auto"
+        className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:bg-[#268781] hover:text-white transition-colors mx-auto"
         aria-label="Instagram"
       >
         <FaInstagram size={20} />
       </a>
 
       {/* Contact Email or Phone */}
-      <p className="text-base font-medium tracking-wide text-[#C0392B]">
+      <p className="text-base font-medium tracking-wide text-[#268781]">
         elratb.elshamy.restaurant@gmail.com
       </p>
 
@@ -33,14 +33,14 @@ const Footer = () => {
       <div className="text-sm space-y-2 text-gray-500">
         <p>
           الراتب الشامي - جميع الحقوق محفوظة ٢٠٢٥ |{" "}
-          <span className="underline cursor-pointer hover:text-[#C0392B] transition">
+          <span className="underline cursor-pointer hover:text-[#268781] transition">
             سياسة الخصوصية
           </span>
         </p>
 
         <p className="text-gray-400">
           Powered by{" "}
-          <span className="text-[#C0392B] font-bold transition">Rikaz</span>
+          <span className="text-[#268781] font-bold transition">Rikaz</span>
         </p>
       </div>
     </footer>

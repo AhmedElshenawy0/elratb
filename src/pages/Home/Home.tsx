@@ -1,20 +1,54 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import HeroSection from "../../components/Home/Hero";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
+import { BsCart4 } from "react-icons/bs";
+import { CartContext } from "../../components/CartContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  console.log(sidebarOpen);
+  const { cartItems } = useContext(CartContext)!;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const categories = ["الشاورما", "البرجر", "وجبات الفراخ", "وجبات عائلية"];
+
+  const refs: any = {
+    " العروض": useRef(null),
+    "قسم الأكثر مبيعا": useRef(null),
+    "قسم البيتزا": useRef(null),
+    "قسم شاورما الحمة": useRef(null),
+    "قسم شاورما الدجاج": useRef(null),
+    "قسم دجاج الشواية": useRef(null),
+    "قسم ع الفحم": useRef(null),
+    "قسم البروست": useRef(null),
+    "قسم العربي": useRef(null),
+    "قسم السندوتشات": useRef(null),
+    "قسم البرجر": useRef(null),
+    "قسم الوجبات": useRef(null),
+    "قسم المكرونات": useRef(null),
+    "قسم الشوربة": useRef(null),
+    "قسم الريزو": useRef(null),
+    "قسم الماريا": useRef(null),
+    "قسم المناقيش": useRef(null),
+    "قسم البرك": useRef(null),
+    "قسم السلطات والمقبلات": useRef(null),
+    "قسم الإضافات": useRef(null),
+  };
+
+  const scrollToSection = (key: string) => {
+    refs[key].current?.scrollIntoView({ behavior: "smooth" });
+    // تعديل بسيط لتفادي تغطية الـ section بالبار الثابت
+    setTimeout(() => {
+      window.scrollBy({ top: -60, behavior: "smooth" });
+    }, 300);
+  };
+
   const headerRef = useRef(null);
+  const [showBar, setShowBar] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -29,39 +63,47 @@ const Home = () => {
       tl.from(".header-title", {
         y: 40,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.7,
         ease: "power3.out",
       })
         .from(".header-subtitle", {
           y: 30,
           opacity: 0,
-          duration: 0.7,
+          duration: 0.6,
           ease: "power3.out",
         })
         .from(".header-rating", {
           scale: 0.5,
           opacity: 0,
-          duration: 0.6,
+          duration: 0.5,
           ease: "back.out(1.7)",
-        })
-        .from(".header-list li", {
-          y: 20,
-          opacity: 0,
-          duration: 0.4,
-          stagger: 0.15,
-          ease: "power2.out",
         });
     }, headerRef);
 
     return () => ctx.revert();
   }, []);
+
+  // مراقبة الاسكرول
+  useEffect(() => {
+    const onScroll = () => {
+      const header = headerRef.current as HTMLElement | null;
+      if (!header) return;
+      const threshold = (header.offsetTop || 0) + (header.offsetHeight || 0);
+      setShowBar(window.scrollY >= threshold);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-[#F8F5F2]" dir="rtl">
       <div className="relative w-full h-screen">
         {/* Background Image */}
         <div
           className="absolute bg-fixed inset-0 bg-cover bg-center "
-          style={{ backgroundImage: "url('/images/burger1.png')" }}
+          style={{ backgroundImage: "url('/images/logo00.jpg')" }}
         />
 
         {/* Overlay Gradient */}
@@ -100,9 +142,8 @@ const Home = () => {
 
       <div className="pt-12">
         {/* Header */}
-        <div ref={headerRef} className="pt-12">
-          {/* Header */}
-          <div className="mb-8 text-center">
+        <div ref={headerRef}>
+          <div className=" text-center">
             <h1 className="header-title text-4xl md:text-5xl font-extrabold text-[#2C3E50] drop-shadow-sm">
               الراتب الشامي
             </h1>
@@ -114,20 +155,18 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Categories List */}
-          <div className="w-full pb-2 px-4 flex flex-col items-center">
-            <ul className="header-list flex flex-wrap justify-center gap-3">
-              {categories.map((item) => (
+          {/* Sticky Categories List (تختفي لما البار الثابت يبان) */}
+          <div
+            className={`w-full pb-2 px-4 mt-2 sticky top-0 pt-6 z-40 ${
+              showBar ? "invisible" : ""
+            }`}
+          >
+            <ul className="flex gap-3 flex-wrap justify-center">
+              {Object.keys(refs).map((item) => (
                 <li
                   key={item}
-                  onClick={() => {
-                    const el = document.getElementById(item);
-                    if (el) {
-                      el.scrollIntoView({ behavior: "smooth" });
-                      setSidebarOpen(false);
-                    }
-                  }}
-                  className="bg-[#268781] px-4 py-2 rounded-2xl text-sm text-white font-medium cursor-pointer transition-transform duration-300 hover:scale-105 hover:bg-gray-800 hover:shadow-lg"
+                  onClick={() => scrollToSection(item)}
+                  className="flex-shrink-0 bg-[#268781] px-4 py-2 rounded-2xl text-sm text-white font-medium cursor-pointer "
                 >
                   {item}
                 </li>
@@ -136,9 +175,41 @@ const Home = () => {
           </div>
         </div>
 
+        {/* Fixed Bar */}
+        <div
+          className={`fixed left-0 right-0 top-0 z-50 bg-white shadow-md transition-transform duration-300 ${
+            showBar ? "translate-y-0" : "-translate-y-full"
+          }`}
+        >
+          <ul className="flex gap-3 overflow-x-auto no-scrollbar px-4 py-2 snap-x snap-mandatory">
+            {Object.keys(refs).map((item) => (
+              <li
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="snap-center flex-shrink-0 bg-[#268781] px-4 py-2 rounded-2xl text-sm text-white font-medium cursor-pointer transition-transform duration-200 hover:scale-105 hover:bg-gray-800 hover:shadow-lg"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* Main Content */}
-        <div className="flex-1 ">
-          <HeroSection />
+        <div className="flex-1 relative">
+          <Link
+            to="/cart"
+            className="bottom-4 right-4 z-50 fixed bg-[#f28a02] p-5 rounded-full"
+          >
+            <BsCart4 size={28} color="white" />
+            {cartItems.length >= 1 ? (
+              <span className="absolute h-4 w-4 top-2 flex justify-center items-center left-7 text-[10px] rounded-full bg-red-500 text-white">
+                {cartItems.length}
+              </span>
+            ) : (
+              ""
+            )}
+          </Link>
+          <HeroSection refs={refs} />
         </div>
       </div>
     </div>

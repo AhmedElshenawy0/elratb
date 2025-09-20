@@ -29,3 +29,10 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

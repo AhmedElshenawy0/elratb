@@ -335,12 +335,12 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="text-left flex flex-col items-end h-full justify-between">
-                    <p className="font-extrabold text-sm text-[#C0392B]">
+                    <p className="font-extrabold text-sm text-[#268781]">
                       {item.price * item.quantity} EGP
                     </p>
                     <button
                       onClick={() => handleRemoveItem(item.orderId)}
-                      className="text-gray-400 hover:text-red-500 transition-colors"
+                      className="text-red-500 transition-colors"
                       aria-label="حذف المنتج"
                     >
                       <TrashIcon />
@@ -372,7 +372,7 @@ export default function CartPage() {
                 </div>
                 <button
                   onClick={() => setIsPopupOpen(true)}
-                  className="w-full mt-8 bg-[#C0392B] text-white py-3 rounded-lg font-bold text-lg hover:bg-[#a13024] transition-colors"
+                  className="w-full mt-8 bg-[#268781] text-white py-3 rounded-lg font-bold text-lg hover:bg-[#a13024] transition-colors"
                 >
                   إتمام الطلب
                 </button>
